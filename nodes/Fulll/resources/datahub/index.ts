@@ -13,136 +13,71 @@ export const dataHubDescription: INodeProperties[] = [
 			{
 				name: 'Account Sums',
 				value: 'accountSums',
-				action: 'Query account sums',
-				description: 'Query aggregated account sums',
-				routing: {
-					request: {
-						method: 'POST',
-						url: '/datahub/raw_or_aggregated_account_sums',
-					},
-				},
+				routing: { request: { method: 'POST', url: '/datahub/v1/graphql' } },
 			},
 			{
 				name: 'Accounts',
 				value: 'accounts',
-				action: 'Query accounts',
-				description: 'Query accounts data',
-				routing: {
-					request: {
-						method: 'POST',
-						url: '/datahub/accounts',
-					},
-				},
+				routing: { request: { method: 'POST', url: '/datahub/v1/graphql' } },
 			},
 			{
 				name: 'Analysis',
 				value: 'analysis',
-				action: 'Query analysis',
-				description: 'Query analysis data',
-				routing: {
-					request: {
-						method: 'POST',
-						url: '/datahub/analysis',
-					},
-				},
+				routing: { request: { method: 'POST', url: '/datahub/v1/graphql' } },
 			},
 			{
 				name: 'Analytic',
 				value: 'analytic',
-				action: 'Query analytics',
-				description: 'Query analytics data',
-				routing: {
-					request: {
-						method: 'POST',
-						url: '/datahub/analytic',
-					},
-				},
+				routing: { request: { method: 'POST', url: '/datahub/v1/graphql' } },
 			},
 			{
 				name: 'Atom Definition',
 				value: 'atomDefinition',
-				action: 'Query atom definitions',
-				description: 'Query atom definitions',
-				routing: {
-					request: {
-						method: 'POST',
-						url: '/datahub/atomdefintion',
-					},
-				},
+				routing: { request: { method: 'POST', url: '/datahub/v1/graphql' } },
 			},
 			{
 				name: 'Company',
 				value: 'company',
-				action: 'Query company data',
-				description: 'Query company data from datahub',
-				routing: {
-					request: {
-						method: 'POST',
-						url: '/datahub/company',
-					},
-				},
+				routing: { request: { method: 'POST', url: '/datahub/v1/graphql' } },
 			},
 			{
 				name: 'Currency',
 				value: 'currency',
-				action: 'Query currency data',
-				description: 'Query currency data',
-				routing: {
-					request: {
-						method: 'POST',
-						url: '/datahub/currency',
-					},
-				},
+				routing: { request: { method: 'POST', url: '/datahub/v1/graphql' } },
 			},
 			{
 				name: 'Datatypes',
 				value: 'datatypes',
-				action: 'Query datatypes',
-				description: 'Query available datatypes',
-				routing: {
-					request: {
-						method: 'POST',
-						url: '/datahub/datatypes',
-					},
-				},
+				routing: { request: { method: 'POST', url: '/datahub/v1/graphql' } },
 			},
 			{
 				name: 'Entries',
 				value: 'entries',
-				action: 'Query entries',
-				description: 'Query entries data',
-				routing: {
-					request: {
-						method: 'POST',
-						url: '/datahub/entries',
-					},
-				},
+				routing: { request: { method: 'POST', url: '/datahub/v1/graphql' } },
 			},
 			{
 				name: 'Fiscal Years',
 				value: 'fiscalYears',
-				action: 'Query fiscal years',
-				description: 'Query fiscal years data',
-				routing: {
-					request: {
-						method: 'POST',
-						url: '/datahub/fiscalyears',
-					},
-				},
+				routing: { request: { method: 'POST', url: '/datahub/v1/graphql' } },
 			},
 			{
 				name: 'Values By Datatypes',
 				value: 'valuesByDatatypes',
-				action: 'Query values by datatypes',
-				description: 'Query values grouped by datatypes',
-				routing: {
-					request: {
-						method: 'POST',
-						url: '/datahub/values_by_datatypes',
-					},
-				},
+				routing: { request: { method: 'POST', url: '/datahub/v1/graphql' } },
 			},
 		],
 		default: 'company',
+	},
+	{
+		displayName: 'GraphQL Query',
+		name: 'graphqlQuery',
+		type: 'json',
+		displayOptions: { show: showOnlyForDataHub },
+		required: true,
+		default: '{}',
+		description: 'GraphQL query and variables for datahub operation',
+		typeOptions: {
+			rows: 8,
+		},
 	},
 ];

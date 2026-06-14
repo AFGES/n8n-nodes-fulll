@@ -93,7 +93,7 @@ export class FulllApi implements ICredentialType {
 	test: ICredentialTestRequest = {
 		request: {
 			baseURL: '={{$credentials.environment}}',
-			url: '/cred/companies',
+			url: '/cred/v1/access/companies.json',
 			method: 'GET',
 		},
 	};
