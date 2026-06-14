@@ -1,6 +1,7 @@
 import { NodeConnectionTypes, type INodeType, type INodeTypeDescription } from 'n8n-workflow';
 import { userDescription } from './resources/user';
 import { companyDescription } from './resources/company';
+import { tokenDescription } from './resources/token';
 
 export class Fulll implements INodeType {
 	description: INodeTypeDescription = {
@@ -17,9 +18,9 @@ export class Fulll implements INodeType {
 		usableAsTool: true,
 		inputs: [NodeConnectionTypes.Main],
 		outputs: [NodeConnectionTypes.Main],
-		credentials: [{ name: 'fulllOAuth2Api', required: true }],
+		credentials: [{ name: 'fulllApi', required: true }],
 		requestDefaults: {
-			baseURL: 'https://api.fulll.io',
+			baseURL: '={{$credentials.environment}}',
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
@@ -37,6 +38,10 @@ export class Fulll implements INodeType {
 						value: 'company',
 					},
 					{
+						name: 'Token',
+						value: 'token',
+					},
+					{
 						name: 'User',
 						value: 'user',
 					},
@@ -45,6 +50,7 @@ export class Fulll implements INodeType {
 			},
 			...userDescription,
 			...companyDescription,
+			...tokenDescription,
 		],
 	};
 }
