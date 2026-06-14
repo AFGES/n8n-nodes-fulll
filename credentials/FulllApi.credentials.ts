@@ -50,6 +50,14 @@ export class FulllApi implements ICredentialType {
 			description: 'Found in the Fulll platform store application',
 		},
 		{
+			displayName: 'Company ID',
+			name: 'companyId',
+			type: 'string',
+			default: '',
+			required: true,
+			description: 'Company identifier sent in the X-Company header on every request',
+		},
+		{
 			displayName: 'Access Token',
 			name: 'accessToken',
 			type: 'string',
@@ -85,7 +93,7 @@ export class FulllApi implements ICredentialType {
 	test: ICredentialTestRequest = {
 		request: {
 			baseURL: '={{$credentials.environment}}',
-			url: '/companies',
+			url: '/cred/companies',
 			method: 'GET',
 		},
 	};

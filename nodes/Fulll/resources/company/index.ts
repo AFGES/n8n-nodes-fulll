@@ -1,9 +1,6 @@
 import type { INodeProperties } from 'n8n-workflow';
-import { companyGetManyDescription } from './getAll';
 
-const showOnlyForCompanies = {
-	resource: ['company'],
-};
+const showOnlyForCompany = { resource: ['company'] };
 
 export const companyDescription: INodeProperties[] = [
 	{
@@ -11,24 +8,45 @@ export const companyDescription: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: {
-			show: showOnlyForCompanies,
-		},
+		displayOptions: { show: showOnlyForCompany },
 		options: [
 			{
 				name: 'Get Many',
 				value: 'getAll',
 				action: 'Get companies',
-				description: 'Get companies',
+				description: 'Retrieve many records',
 				routing: {
 					request: {
 						method: 'GET',
-						url: '/companies',
+						url: '/cred/companies',
+					},
+				},
+			},
+			{
+				name: 'Check Access',
+				value: 'checkAccess',
+				action: 'Check company access',
+				description: 'Check company access verification',
+				routing: {
+					request: {
+						method: 'GET',
+						url: '/cred/companies/access',
+					},
+				},
+			},
+			{
+				name: 'Check Module Access',
+				value: 'checkModuleAccess',
+				action: 'Check module access',
+				description: 'Check module access status',
+				routing: {
+					request: {
+						method: 'GET',
+						url: '/cred/module/access',
 					},
 				},
 			},
 		],
 		default: 'getAll',
 	},
-	...companyGetManyDescription,
 ];
