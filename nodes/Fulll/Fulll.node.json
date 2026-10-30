@@ -2,7 +2,7 @@
 	"node": "@afges/n8n-nodes-fulll",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
-	"categories": ["Development", "Developer Tools"],
+	"categories": ["Finance & Accounting"],
 	"resources": {
 		"credentialDocumentation": [
 			{
