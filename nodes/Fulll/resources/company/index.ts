@@ -63,6 +63,7 @@ export const companyDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForCompany, operation: ['getAll'] } },
 		default: 'active',
 		description: 'Filter by state',
+		routing: { send: { type: 'query', property: 'state' } },
 	},
 	{
 		displayName: 'Page',
@@ -71,6 +72,7 @@ export const companyDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForCompany, operation: ['getAll'] } },
 		default: 1,
 		description: 'Page number',
+		routing: { send: { type: 'query', property: 'page' } },
 	},
 	{
 		displayName: 'Max Per Page',
@@ -79,6 +81,7 @@ export const companyDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForCompany, operation: ['getAll'] } },
 		default: 50,
 		description: 'Maximum number of companies per page',
+		routing: { send: { type: 'query', property: 'max_per_page' } },
 	},
 	{
 		displayName: 'Search Term',
@@ -87,5 +90,22 @@ export const companyDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForCompany, operation: ['getAll'] } },
 		default: '',
 		description: 'Search in corporate name and file number',
+		routing: { send: { type: 'query', property: 'q', value: '={{$value || undefined}}' } },
+	},
+	{
+		displayName: 'Expand',
+		name: 'expand',
+		type: 'multiOptions',
+		options: [
+			{ name: 'Corporate Name', value: 'corporate_name' },
+			{ name: 'File Number', value: 'file_number' },
+			{ name: 'VIP', value: 'vip' },
+			{ name: 'Favorite', value: 'favorite' },
+		],
+		displayOptions: { show: { ...showOnlyForCompany, operation: ['getAll'] } },
+		default: [],
+		description: 'Additional properties to return in the response',
+		// NOTE: API.md documents `expand` as an array; sent comma-joined. Confirm serialization against the live API.
+		routing: { send: { type: 'query', property: 'expand', value: '={{$value?.length ? $value.join(",") : undefined}}' } },
 	},
 ];

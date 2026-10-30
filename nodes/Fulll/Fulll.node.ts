@@ -38,7 +38,6 @@ export class Fulll implements INodeType {
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
-				'X-Company': '={{$credentials.companyId}}',
 			},
 		},
 		properties: [

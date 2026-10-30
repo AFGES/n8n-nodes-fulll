@@ -86,6 +86,7 @@ export class FulllApi implements ICredentialType {
 		properties: {
 			headers: {
 				Authorization: '=Bearer {{$credentials.accessToken}}',
+				'X-Company': '={{$credentials.companyId}}',
 			},
 		},
 	};
@@ -95,6 +96,7 @@ export class FulllApi implements ICredentialType {
 			baseURL: '={{$credentials.environment}}',
 			url: '/cred/v1/access/companies.json',
 			method: 'GET',
+			headers: { Accept: 'application/json' },
 		},
 	};
 }

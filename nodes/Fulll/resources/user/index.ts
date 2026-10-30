@@ -42,6 +42,7 @@ export const userDescription: INodeProperties[] = [
 		type: 'number',
 		displayOptions: { show: { ...showOnlyForUser, operation: ['getAll'] } },
 		default: 1,
+		routing: { send: { type: 'query', property: 'page' } },
 	},
 	{
 		displayName: 'Max Per Page',
@@ -51,6 +52,7 @@ export const userDescription: INodeProperties[] = [
 		default: 50,
 		description: 'Maximum number of users per page',
 		typeOptions: { minValue: 1 },
+		routing: { send: { type: 'query', property: 'max_per_page' } },
 	},
 	{
 		displayName: 'Search Term',
@@ -59,6 +61,7 @@ export const userDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForUser, operation: ['getAll'] } },
 		default: '',
 		description: 'Search in firstname, lastname, and email',
+		routing: { send: { type: 'query', property: 'q', value: '={{$value || undefined}}' } },
 	},
 	{
 		displayName: 'State',
@@ -71,6 +74,7 @@ export const userDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForUser, operation: ['getAll'] } },
 		default: 'active',
 		description: 'Filter by state',
+		routing: { send: { type: 'query', property: 'state' } },
 	},
 	{
 		displayName: 'Type',
@@ -84,6 +88,7 @@ export const userDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForUser, operation: ['getAll'] } },
 		default: 'all',
 		description: 'Filter by user type',
+		routing: { send: { type: 'query', property: 'type' } },
 	},
 	{
 		displayName: 'Company',
@@ -92,6 +97,7 @@ export const userDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForUser, operation: ['getAll'] } },
 		default: '',
 		description: 'Filter by company identifier',
+		routing: { send: { type: 'query', property: 'company', value: '={{$value || undefined}}' } },
 	},
 	{
 		displayName: 'Include Me',
@@ -100,5 +106,22 @@ export const userDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForUser, operation: ['getAll'] } },
 		default: false,
 		description: 'Whether to include the requesting user in the response',
+		routing: { send: { type: 'query', property: 'include_me', value: '={{$value ? "true" : undefined}}' } },
+	},
+	{
+		displayName: 'Expand',
+		name: 'expand',
+		type: 'multiOptions',
+		options: [
+			{ name: 'Email', value: 'email' },
+			{ name: 'Firstname', value: 'firstname' },
+			{ name: 'Lastname', value: 'lastname' },
+			{ name: 'Profile', value: 'profile' },
+		],
+		displayOptions: { show: { ...showOnlyForUser, operation: ['getAll'] } },
+		default: [],
+		description: 'Additional properties to return in the response',
+		// NOTE: API.md documents `expand` as an array; sent comma-joined. Confirm serialization against the live API.
+		routing: { send: { type: 'query', property: 'expand', value: '={{$value?.length ? $value.join(",") : undefined}}' } },
 	},
 ];

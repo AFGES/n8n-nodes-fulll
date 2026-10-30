@@ -1,4 +1,5 @@
 import type { INodeProperties } from 'n8n-workflow';
+import { accountingListParams, thirdLabelParam } from '../shared';
 
 const showOnlyForCustomer = { resource: ['customer'] };
 
@@ -49,6 +50,7 @@ export const customerDescription: INodeProperties[] = [
 		],
 		default: 'getAll',
 	},
+	...accountingListParams(showOnlyForCustomer),
 	{
 		displayName: 'Customer Number',
 		name: 'customerNumber',
@@ -65,6 +67,7 @@ export const customerDescription: INodeProperties[] = [
 		default: '',
 		required: true,
 	},
+	thirdLabelParam(showOnlyForCustomer),
 	{
 		displayName: 'Customer Info',
 		name: 'infos',
@@ -72,23 +75,22 @@ export const customerDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForCustomer, operation: ['create'] } },
 		required: true,
 		default: {},
-		typeOptions: {
-			objectLikeOptions: [
-				{
-					displayName: 'Number',
-					name: 'number',
-					type: 'string',
-					default: '',
-					required: true,
-				},
-				{
-					displayName: 'Title',
-					name: 'title',
-					type: 'string',
-					default: '',
-					required: true,
-				},
-			],
-		},
+		options: [
+			{
+				displayName: 'Number',
+				name: 'number',
+				type: 'string',
+				default: '',
+				routing: { send: { type: 'body', property: 'number' } },
+			},
+			{
+				displayName: 'Title',
+				name: 'title',
+				type: 'string',
+				default: '',
+				required: true,
+				routing: { send: { type: 'body', property: 'title' } },
+			},
+		],
 	},
 ];

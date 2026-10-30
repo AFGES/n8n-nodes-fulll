@@ -32,6 +32,7 @@ export const balanceDescription: INodeProperties[] = [
 		default: 'period',
 		required: true,
 		description: 'Return period or date property in response',
+		routing: { send: { type: 'query', property: 'mode' } },
 	},
 	{
 		displayName: 'Class',
@@ -41,6 +42,7 @@ export const balanceDescription: INodeProperties[] = [
 		default: '',
 		required: true,
 		description: 'Account type (C/F) or start number (e.g., 706, 4456)',
+		routing: { send: { type: 'query', property: 'class' } },
 	},
 	{
 		displayName: 'Period Start',
@@ -49,6 +51,9 @@ export const balanceDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForBalance, operation: ['getAll'] } },
 		default: '',
 		description: 'Filter on period in mm/yyyy format',
+		routing: {
+			send: { type: 'query', property: 'periodstart', value: '={{$value || undefined}}' },
+		},
 	},
 	{
 		displayName: 'Period End',
@@ -57,6 +62,7 @@ export const balanceDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForBalance, operation: ['getAll'] } },
 		default: '',
 		description: 'Filter on period in mm/yyyy format',
+		routing: { send: { type: 'query', property: 'periodend', value: '={{$value || undefined}}' } },
 	},
 	{
 		displayName: 'Exercice',
@@ -65,5 +71,6 @@ export const balanceDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForBalance, operation: ['getAll'] } },
 		default: '',
 		description: 'Filter to given fiscal year code',
+		routing: { send: { type: 'query', property: 'exercice', value: '={{$value || undefined}}' } },
 	},
 ];

@@ -1,4 +1,5 @@
 import type { INodeProperties } from 'n8n-workflow';
+import { accountingListParams, thirdLabelParam } from '../shared';
 
 const showOnlyForEmployee = { resource: ['employee'] };
 
@@ -49,6 +50,7 @@ export const employeeDescription: INodeProperties[] = [
 		],
 		default: 'getAll',
 	},
+	...accountingListParams(showOnlyForEmployee),
 	{
 		displayName: 'Employee Number',
 		name: 'employeeNumber',
@@ -76,5 +78,31 @@ export const employeeDescription: INodeProperties[] = [
 			},
 		},
 		description: 'The code of the book to get counterparts for',
+	},
+	thirdLabelParam(showOnlyForEmployee),
+	{
+		displayName: 'Employee Info',
+		name: 'infos',
+		type: 'collection',
+		displayOptions: { show: { ...showOnlyForEmployee, operation: ['create'] } },
+		required: true,
+		default: {},
+		options: [
+			{
+				displayName: 'Number',
+				name: 'number',
+				type: 'string',
+				default: '',
+				routing: { send: { type: 'body', property: 'number' } },
+			},
+			{
+				displayName: 'Title',
+				name: 'title',
+				type: 'string',
+				default: '',
+				required: true,
+				routing: { send: { type: 'body', property: 'title' } },
+			},
+		],
 	},
 ];

@@ -1,4 +1,5 @@
 import type { INodeProperties } from 'n8n-workflow';
+import { accountingListParams, thirdLabelParam } from '../shared';
 
 const showOnlyForProvider = { resource: ['provider'] };
 
@@ -49,6 +50,7 @@ export const providerDescription: INodeProperties[] = [
 		],
 		default: 'getAll',
 	},
+	...accountingListParams(showOnlyForProvider),
 	{
 		displayName: 'Provider Number',
 		name: 'providerNumber',
@@ -65,6 +67,7 @@ export const providerDescription: INodeProperties[] = [
 		default: '',
 		required: true,
 	},
+	thirdLabelParam(showOnlyForProvider),
 	{
 		displayName: 'Provider Info',
 		name: 'infos',
@@ -78,6 +81,7 @@ export const providerDescription: INodeProperties[] = [
 				name: 'number',
 				type: 'string',
 				default: '',
+				routing: { send: { type: 'body', property: 'number' } },
 			},
 			{
 				displayName: 'Title',
@@ -85,6 +89,7 @@ export const providerDescription: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				required: true,
+				routing: { send: { type: 'body', property: 'title' } },
 			},
 		],
 	},
