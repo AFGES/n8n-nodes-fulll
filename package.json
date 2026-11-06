@@ -19,7 +19,13 @@
 		"build": "n8n-node build",
 		"build:watch": "tsc --watch",
 		"dev": "n8n-node dev",
-		"lint": "n8n-node lint"
+		"lint": "n8n-node lint",
+		"lint:fix": "n8n-node lint --fix",
+		"check": "vp check",
+		"check:fix": "vp check --fix",
+		"format": "vp fmt",
+		"release": "n8n-node release",
+		"prepublishOnly": "n8n-node prerelease"
 	},
 	"files": [
 		"dist"
@@ -35,11 +41,10 @@
 		]
 	},
 	"devDependencies": {
-		"@n8n/node-cli": "*",
-		"eslint": "9.29.0",
-		"prettier": "3.6.2",
+		"@n8n/node-cli": "^0.54.3",
 		"release-it": "^21.1.2",
-		"typescript": "5.9.2"
+		"typescript": "6.0.3",
+		"vite-plus": "1.4.0"
 	},
 	"peerDependencies": {
 		"n8n-workflow": "*"
