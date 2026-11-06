@@ -21,7 +21,7 @@ export class Fulll implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Fulll',
 		name: 'fulll',
-		icon: 'file:fulll.svg',
+		icon: { light: 'file:fulll.svg', dark: 'file:fulll.dark.svg' },
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',

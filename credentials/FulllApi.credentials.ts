@@ -9,7 +9,10 @@ import type {
 export class FulllApi implements ICredentialType {
 	name = 'fulllApi';
 	displayName = 'Fulll API';
-	icon = 'file:../nodes/Fulll/fulll.svg' as Icon;
+	icon: Icon = {
+		light: 'file:../nodes/Fulll/fulll.svg',
+		dark: 'file:../nodes/Fulll/fulll.dark.svg',
+	};
 	documentationUrl = 'https://github.com/AFGES/n8n-nodes-fulll?tab=readme-ov-file#credentials';
 
 	properties: INodeProperties[] = [
