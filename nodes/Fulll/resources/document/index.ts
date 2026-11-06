@@ -6,7 +6,12 @@ type FormPart = { name: string; value: string | Buffer; fileName?: string; mimeT
 
 function appendIfSet(parts: FormPart[], name: string, value: unknown): void {
 	if (value === undefined || value === null || value === '') return;
-	parts.push({ name, value: String(value) });
+	// Expressions can resolve to objects/arrays: send them as JSON instead of "[object Object]".
+	const text =
+		typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean'
+			? String(value)
+			: JSON.stringify(value);
+	parts.push({ name, value: text });
 }
 
 // Serializes parts as a multipart/form-data body by hand: n8n's httpRequest
