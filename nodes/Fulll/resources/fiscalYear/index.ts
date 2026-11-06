@@ -32,6 +32,8 @@ export const fiscalYearDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForFiscalYear, operation: ['getAll'] } },
 		default: false,
 		description: 'Whether to reduce the result to the last fiscal year only',
-		routing: { send: { type: 'query', property: 'last', value: '={{$value ? "true" : undefined}}' } },
+		routing: {
+			send: { type: 'query', property: 'last', value: '={{$value ? "true" : undefined}}' },
+		},
 	},
 ];

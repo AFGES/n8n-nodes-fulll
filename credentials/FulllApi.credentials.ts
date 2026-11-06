@@ -77,7 +77,8 @@ export class FulllApi implements ICredentialType {
 			},
 			default: '',
 			required: true,
-			description: 'Refresh token generated in the Fulll platform. Use the Refresh Token operation to obtain new tokens.',
+			description:
+				'Refresh token generated in the Fulll platform. Use the Refresh Token operation to obtain new tokens.',
 		},
 	];
 

@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [0.0.3] - 2026-06-14
 
 ### Fixed
+
 - Credential test no longer returns 403: `X-Company` moved into the credential
   `authenticate` headers (was only in node `requestDefaults`, which does not
   apply to credential tests); added `Accept: application/json` to the test request
@@ -28,6 +29,7 @@ All notable changes to this project will be documented in this file.
   multipart body is encoded manually instead of relying on native `FormData`
 
 ### Added
+
 - Missing query parameters per API.md: account list filters
   (`account_class`, `complete_mode`, `expand`, `statuses`, `page`, `limit`),
   entry list filters (period/date/number/book ranges, `lettered`, `account_type`,
@@ -43,12 +45,14 @@ All notable changes to this project will be documented in this file.
 ## [0.0.2] - 2026-06-14
 
 ### Changed
+
 - Replace OAuth2 credential with custom integration auth for Fulll API
 - Support environment selection (Production Fulll / Production Inexweb)
 - Dynamic base URL based on selected environment
 - Fixed node path in package.json
 
 ### Added
+
 - Custom credential class `FulllApi` with client ID, secret, access token, refresh token
 - Token resource with Refresh Token operation to rotate credentials
 - Bearer token authentication via Authorization header

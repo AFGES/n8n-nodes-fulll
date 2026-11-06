@@ -64,7 +64,9 @@ export const accountDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForAccount, operation: ['getAll'] } },
 		default: '',
 		description: 'Account type to filter on',
-		routing: { send: { type: 'query', property: 'account_class', value: '={{$value || undefined}}' } },
+		routing: {
+			send: { type: 'query', property: 'account_class', value: '={{$value || undefined}}' },
+		},
 	},
 	...accountingListParams(showOnlyForAccount),
 	{

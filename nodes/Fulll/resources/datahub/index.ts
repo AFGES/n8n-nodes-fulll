@@ -17,7 +17,10 @@ async function mergeAdditionalVariables(
 	requestOptions: IHttpRequestOptions,
 ): Promise<IHttpRequestOptions> {
 	const raw = this.getNodeParameter('additionalVariables', '{}') as string | object;
-	const extra = (typeof raw === 'string' ? (raw.trim() ? JSON.parse(raw) : {}) : raw) as Record<string, unknown>;
+	const extra = (typeof raw === 'string' ? (raw.trim() ? JSON.parse(raw) : {}) : raw) as Record<
+		string,
+		unknown
+	>;
 	if (!extra || !Object.keys(extra).length) return requestOptions;
 	const body = (requestOptions.body ?? {}) as Record<string, unknown>;
 	body.variables = { ...extra, ...((body.variables as Record<string, unknown>) ?? {}) };
@@ -144,7 +147,13 @@ export const dataHubDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForDataHub, operation: fiscalYearArgOps } },
 		default: '',
 		description: 'Filter fiscal years by closed state',
-		routing: { send: { type: 'body', property: 'variables.isClosed', value: '={{$value === "" ? undefined : $value === "true"}}' } },
+		routing: {
+			send: {
+				type: 'body',
+				property: 'variables.isClosed',
+				value: '={{$value === "" ? undefined : $value === "true"}}',
+			},
+		},
 	},
 	{
 		displayName: 'Sort',
@@ -167,7 +176,8 @@ export const dataHubDescription: INodeProperties[] = [
 		type: 'json',
 		displayOptions: { show: { ...showOnlyForDataHub, operation: ['entries'] } },
 		default: '{}',
-		description: 'EntriesColumnSort object choosing the column and direction. Leave empty for the API default (anti-chronological on date).',
+		description:
+			'EntriesColumnSort object choosing the column and direction. Leave empty for the API default (anti-chronological on date).',
 		routing: { send: { type: 'body', property: 'variables.sort', value: parseOptionalJsonValue } },
 	},
 
@@ -199,7 +209,9 @@ export const dataHubDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForDataHub, operation: ['atomDefinition'] } },
 		default: '',
 		description: 'Search for a pattern in the name and label of the atom definition',
-		routing: { send: { type: 'body', property: 'variables.filter', value: '={{$value || undefined}}' } },
+		routing: {
+			send: { type: 'body', property: 'variables.filter', value: '={{$value || undefined}}' },
+		},
 	},
 
 	// --- Entries args ---
@@ -220,7 +232,9 @@ export const dataHubDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForDataHub, operation: ['entries'] } },
 		default: '',
 		description: 'Account ID to filter on',
-		routing: { send: { type: 'body', property: 'variables.accountId', value: '={{$value || undefined}}' } },
+		routing: {
+			send: { type: 'body', property: 'variables.accountId', value: '={{$value || undefined}}' },
+		},
 	},
 	{
 		displayName: 'Entries Filter (JSON)',
@@ -229,7 +243,9 @@ export const dataHubDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForDataHub, operation: ['entries'] } },
 		default: '{}',
 		description: 'Filter on entry fields such as label or analytics',
-		routing: { send: { type: 'body', property: 'variables.filter', value: parseOptionalJsonValue } },
+		routing: {
+			send: { type: 'body', property: 'variables.filter', value: parseOptionalJsonValue },
+		},
 	},
 
 	// --- Aggregation args (Values By Datatypes, Account Sums) ---
@@ -272,7 +288,9 @@ export const dataHubDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForDataHub, operation: [...dataTypeOps] } },
 		default: 0,
 		description: 'Number of elements to retrieve',
-		routing: { send: { type: 'body', property: 'variables.first', value: '={{$value || undefined}}' } },
+		routing: {
+			send: { type: 'body', property: 'variables.first', value: '={{$value || undefined}}' },
+		},
 	},
 	{
 		displayName: 'After',
@@ -281,6 +299,8 @@ export const dataHubDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForDataHub, operation: [...dataTypeOps] } },
 		default: '',
 		description: 'Starting base64-encoded index of the pagination',
-		routing: { send: { type: 'body', property: 'variables.after', value: '={{$value || undefined}}' } },
+		routing: {
+			send: { type: 'body', property: 'variables.after', value: '={{$value || undefined}}' },
+		},
 	},
 ];

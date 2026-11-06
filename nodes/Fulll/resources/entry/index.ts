@@ -69,7 +69,9 @@ export const entryDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForEntry, operation: ['getAll'] } },
 		default: '',
 		description: 'Filter by account type',
-		routing: { send: { type: 'query', property: 'account_type', value: '={{$value || undefined}}' } },
+		routing: {
+			send: { type: 'query', property: 'account_type', value: '={{$value || undefined}}' },
+		},
 	},
 	{
 		displayName: 'Prefix',
@@ -87,7 +89,9 @@ export const entryDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForEntry, operation: ['getAll'] } },
 		default: '',
 		description: 'Filter on period in mm/yyyy format',
-		routing: { send: { type: 'query', property: 'period_start', value: '={{$value || undefined}}' } },
+		routing: {
+			send: { type: 'query', property: 'period_start', value: '={{$value || undefined}}' },
+		},
 	},
 	{
 		displayName: 'Period End',
@@ -122,7 +126,9 @@ export const entryDescription: INodeProperties[] = [
 		type: 'string',
 		displayOptions: { show: { ...showOnlyForEntry, operation: ['getAll'] } },
 		default: '',
-		routing: { send: { type: 'query', property: 'number_start', value: '={{$value || undefined}}' } },
+		routing: {
+			send: { type: 'query', property: 'number_start', value: '={{$value || undefined}}' },
+		},
 	},
 	{
 		displayName: 'Number End',
@@ -185,7 +191,13 @@ export const entryDescription: INodeProperties[] = [
 		default: [],
 		description: 'Additional properties to return in the response',
 		// NOTE: API.md documents this param as `expand[]`; sent comma-joined under `expand[]`. Confirm serialization against the live API.
-		routing: { send: { type: 'query', property: 'expand[]', value: '={{$value?.length ? $value.join(",") : undefined}}' } },
+		routing: {
+			send: {
+				type: 'query',
+				property: 'expand[]',
+				value: '={{$value?.length ? $value.join(",") : undefined}}',
+			},
+		},
 	},
 	{
 		displayName: 'Entry Info',
@@ -201,7 +213,9 @@ export const entryDescription: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Book code. Either Journal ID or Book Code must be set.',
-				routing: { send: { type: 'body', property: 'book_code', value: '={{$value || undefined}}' } },
+				routing: {
+					send: { type: 'body', property: 'book_code', value: '={{$value || undefined}}' },
+				},
 			},
 			{
 				displayName: 'Date',
@@ -222,8 +236,11 @@ export const entryDescription: INodeProperties[] = [
 				name: 'journal_id',
 				type: 'string',
 				default: '',
-				description: 'Book identifier. Either Journal ID or Book Code must be set; Journal ID takes precedence.',
-				routing: { send: { type: 'body', property: 'journal_id', value: '={{$value || undefined}}' } },
+				description:
+					'Book identifier. Either Journal ID or Book Code must be set; Journal ID takes precedence.',
+				routing: {
+					send: { type: 'body', property: 'journal_id', value: '={{$value || undefined}}' },
+				},
 			},
 			{
 				displayName: 'Label',
@@ -247,7 +264,8 @@ export const entryDescription: INodeProperties[] = [
 				name: 'piece',
 				type: 'string',
 				default: '',
-				description: 'Piece value. Use * to let the accounting software auto-complete (Production FULLL only).',
+				description:
+					'Piece value. Use * to let the accounting software auto-complete (Production FULLL only).',
 				routing: { send: { type: 'body', property: 'piece', value: '={{$value || undefined}}' } },
 			},
 		],

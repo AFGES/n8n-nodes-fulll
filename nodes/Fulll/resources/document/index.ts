@@ -51,7 +51,8 @@ async function presendDocumentUpload(
 			if (key === 'confidentialFor') {
 				// API.md: can be used only if isConfidential is true.
 				if (fields.isConfidential !== true) continue;
-				const ids = typeof value === 'string' ? value.split(',') : Array.isArray(value) ? value : [];
+				const ids =
+					typeof value === 'string' ? value.split(',') : Array.isArray(value) ? value : [];
 				for (const id of ids) {
 					const trimmed = String(id).trim();
 					if (trimmed) parts.push({ name: 'confidentialFor[]', value: trimmed });
@@ -99,7 +100,12 @@ export const documentDescription: INodeProperties[] = [
 				value: 'listByType',
 				action: 'List documents by type',
 				description: 'List documents filtered by type',
-				routing: { request: { method: 'GET', url: '=/document/v1/files/{{$parameter.documentTypeSlug}}/list.json' } },
+				routing: {
+					request: {
+						method: 'GET',
+						url: '=/document/v1/files/{{$parameter.documentTypeSlug}}/list.json',
+					},
+				},
 			},
 			{
 				name: 'List Types',

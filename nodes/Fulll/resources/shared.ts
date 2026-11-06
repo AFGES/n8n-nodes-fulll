@@ -28,7 +28,9 @@ export function accountingListParams(show: Show): INodeProperties[] {
 			displayOptions,
 			default: '0',
 			description: 'Whether to return accounts with debit, credit and balance',
-			routing: { send: { type: 'query', property: 'complete_mode', value: '={{$value || undefined}}' } },
+			routing: {
+				send: { type: 'query', property: 'complete_mode', value: '={{$value || undefined}}' },
+			},
 		},
 		{
 			displayName: 'Pagination',
@@ -69,6 +71,8 @@ export function thirdLabelParam(show: Show): INodeProperties {
 		displayOptions: { show: { ...show, operation: ['getCounterparts'] } },
 		default: '',
 		description: 'Filter results with a label that contains the given string',
-		routing: { send: { type: 'query', property: 'third_label', value: '={{$value || undefined}}' } },
+		routing: {
+			send: { type: 'query', property: 'third_label', value: '={{$value || undefined}}' },
+		},
 	};
 }

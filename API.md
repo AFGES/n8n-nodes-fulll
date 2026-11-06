@@ -32,32 +32,32 @@ The `DELETE` method is exactly as it sounds: delete the resource at the specifie
 
 HTTP defines forty standard status codes, they are divided into the five categories presented below, We use only 3 categories:
 
-| Category | Name |
-| --- | --- |
-| 2xx: Sucesss | Indicates that the client's request was accepted successfully. |
+| Category          | Name                                                              |
+| ----------------- | ----------------------------------------------------------------- |
+| 2xx: Sucesss      | Indicates that the client's request was accepted successfully.    |
 | 4xx: Client Error | This category of error status codes points the finger at clients. |
-| 5xx: Server Error | The server takes responsibility for these error status codes. |
+| 5xx: Server Error | The server takes responsibility for these error status codes.     |
 
 ### Common codes
 
 These are the most commons code you will encounter:
 
-| Code | Status | Description |
-| --- | --- | --- |
-| 200 | OK | Request was successful. |
-| 201 | Created | A resource has been created on the server. |
-| 202 | Accepted | The request has been accepted for processing but has not yet completed. |
-| 204 | No Content | The request was processed successfully, but no response body is needed. |
-| 400 | Bad Request | One or more parameters are missing or maybe mispelled. |
-| 401 | Unauthorized | Invalid or missing credentials. |
-| 403 | Forbidden | Usually due to an invalid authentication. |
-| 404 | Not Found | You requested an invalid method. |
-| 405 | Method Not Allowed | The verb/method you used to fulfill the request is not supported for this resource. |
-| 409 | Conflict | The request could not be completed due to a conflict with the current state of the target resource. |
-| 501 | Not implemented | Requested HTTP operation not supported. |
-| 502 | Bad Gateway | The remote server returned an error. Likely a timeout. The request should be retried with exponential backoff. |
-| 503 | Service Unavailable | Indicates that the services is temporarily unavailable due to system overload or maintenance. |
-| 504 | Gateway Timeout | A service required to fulfill the request was not available. |
+| Code | Status              | Description                                                                                                    |
+| ---- | ------------------- | -------------------------------------------------------------------------------------------------------------- |
+| 200  | OK                  | Request was successful.                                                                                        |
+| 201  | Created             | A resource has been created on the server.                                                                     |
+| 202  | Accepted            | The request has been accepted for processing but has not yet completed.                                        |
+| 204  | No Content          | The request was processed successfully, but no response body is needed.                                        |
+| 400  | Bad Request         | One or more parameters are missing or maybe mispelled.                                                         |
+| 401  | Unauthorized        | Invalid or missing credentials.                                                                                |
+| 403  | Forbidden           | Usually due to an invalid authentication.                                                                      |
+| 404  | Not Found           | You requested an invalid method.                                                                               |
+| 405  | Method Not Allowed  | The verb/method you used to fulfill the request is not supported for this resource.                            |
+| 409  | Conflict            | The request could not be completed due to a conflict with the current state of the target resource.            |
+| 501  | Not implemented     | Requested HTTP operation not supported.                                                                        |
+| 502  | Bad Gateway         | The remote server returned an error. Likely a timeout. The request should be retried with exponential backoff. |
+| 503  | Service Unavailable | Indicates that the services is temporarily unavailable due to system overload or maintenance.                  |
+| 504  | Gateway Timeout     | A service required to fulfill the request was not available.                                                   |
 
 ## Authentication
 
@@ -172,28 +172,28 @@ The preferences will list some account types. They're accounts or class of accou
 
 Possible account types
 
-| type | description |
-| --- | --- |
-| C | Customers |
-| F | Providers |
-| S | Employees |
-| R | Remuneration |
-| CS | Social payments |
-| ET | State tax |
-| AT | Other transactions in case of direct payment |
-| B | Bank related accounts |
-| VI | Internal cash transfer |
-| VATB | VAT accounts in case of buying something |
-| VATS | VAT accounts in case of selling something |
-| VAT | All VAT accounts |
-| SHIPS | Shipping in case of selling something |
-| SHIPB | Shipping in case of buying something |
-| DISCS | Discount in case of selling something |
-| DISCB | Discount in case of buying something |
-| BANK | Strict bank accounts |
-| LOSS | Loss acounts |
-| PROFIT | Profit accounts |
-| CASH | Cash operations related accounts |
+| type   | description                                  |
+| ------ | -------------------------------------------- |
+| C      | Customers                                    |
+| F      | Providers                                    |
+| S      | Employees                                    |
+| R      | Remuneration                                 |
+| CS     | Social payments                              |
+| ET     | State tax                                    |
+| AT     | Other transactions in case of direct payment |
+| B      | Bank related accounts                        |
+| VI     | Internal cash transfer                       |
+| VATB   | VAT accounts in case of buying something     |
+| VATS   | VAT accounts in case of selling something    |
+| VAT    | All VAT accounts                             |
+| SHIPS  | Shipping in case of selling something        |
+| SHIPB  | Shipping in case of buying something         |
+| DISCS  | Discount in case of selling something        |
+| DISCB  | Discount in case of buying something         |
+| BANK   | Strict bank accounts                         |
+| LOSS   | Loss acounts                                 |
+| PROFIT | Profit accounts                              |
+| CASH   | Cash operations related accounts             |
 
 #### Validation rules
 
@@ -201,16 +201,16 @@ The preferences will also list some validation rules. They're provided in additi
 
 Possible validation rules
 
-| id | description |
-| --- | --- |
-| account.general.number | general account number |
+| id                      | description             |
+| ----------------------- | ----------------------- |
+| account.general.number  | general account number  |
 | account.customer.number | customer account number |
 | account.provider.number | provider account number |
-| account.general.label | general account label |
-| account.customer.label | customer account label |
-| account.provider.label | provider account label |
-| piece.number | piece number |
-| piece.label | piece label |
+| account.general.label   | general account label   |
+| account.customer.label  | customer account label  |
+| account.provider.label  | provider account label  |
+| piece.number            | piece number            |
+| piece.label             | piece label             |
 
 ### Fiscal years
 
@@ -219,7 +219,7 @@ Possible validation rules
 List the available fiscal years. All existing fiscal years are listed, but closed ones are unavailable for writing.
 
 last
-:   `boolean` (optional) Default: false — Reduce to the last fiscal year
+: `boolean` (optional) Default: false — Reduce to the last fiscal year
 
 ### Books
 
@@ -236,35 +236,35 @@ List books.
 List accounts.
 
 account\_class
-:   `string` (optional) — Account **type**, not class. Choices: `G` `C` `F` `E`
+: `string` (optional) — Account **type**, not class. Choices: `G` `C` `F` `E`
 
 complete\_mode
-:   `string` (optional) — If 1, returns accounts with debit, credit and balance. Choices: `1` `0`
+: `string` (optional) — If 1, returns accounts with debit, credit and balance. Choices: `1` `0`
 
 expand
-:   `string` (optional) — Return the requested property in response
+: `string` (optional) — Return the requested property in response
 
 statuses
-:   `string` (optional) — By default, returns all accounts regardless of status. Choices: `open` `closed` `deleted`
+: `string` (optional) — By default, returns all accounts regardless of status. Choices: `open` `closed` `deleted`
 
 page
-:   `number` (optional) Default: 1 — Page number
+: `number` (optional) Default: 1 — Page number
 
 limit
-:   `number` (optional) — Maximum number of accounts per page
+: `number` (optional) — Maximum number of accounts per page
 
 #### List counterparts of an account — `GET /accounting/v1/accounts/{account_number}/counterparts/{book_code}{?third_label}`
 
 List the counterparts (linked accounts) for a given account in a given book. The account number can be of any type.
 
 account\_number
-:   `string` (required) — Account number. Example: `9PROVIDER`
+: `string` (required) — Account number. Example: `9PROVIDER`
 
 book\_code
-:   `string` (required) — Book code. Example: `AC`
+: `string` (required) — Book code. Example: `AC`
 
 third\_label
-:   `string` (optional) — Filter results with a label that contains the required string. Example: `PARIS`
+: `string` (optional) — Filter results with a label that contains the required string. Example: `PARIS`
 
 #### Account creation — `POST /accounting/v1/accounts`
 
@@ -277,19 +277,19 @@ Get the balance of accounts.
 > **Warning ⚠️** In the response, there is either the `period` or `date` property. If the `mode` parameter is set to `period`, then the `period` property will be returned. If the `mode` parameter is set to `date`, then the `date` property will be returned.
 
 mode
-:   `string` (required) — `period` or `date`
+: `string` (required) — `period` or `date`
 
 class
-:   `string` (required) — Account type (C/F) otherwise start number (706, 4456…)
+: `string` (required) — Account type (C/F) otherwise start number (706, 4456…)
 
 periodstart
-:   `string` (optional) — filter on period `mm/yyyy` of the exercice
+: `string` (optional) — filter on period `mm/yyyy` of the exercice
 
 periodend
-:   `string` (optional) — filter on period `mm/yyyy` of the exercice
+: `string` (optional) — filter on period `mm/yyyy` of the exercice
 
 exercice
-:   `string` (optional) — filter to the given code exercice, otherwise use the current (last) exercice
+: `string` (optional) — filter to the given code exercice, otherwise use the current (last) exercice
 
 ### Providers
 
@@ -298,24 +298,24 @@ exercice
 List of providers, which are a specific account type.
 
 complete\_mode
-:   `string` (optional) — If 1, returns accounts with debit, credit and balance. Choices: `1` `0`
+: `string` (optional) — If 1, returns accounts with debit, credit and balance. Choices: `1` `0`
 
 page
-:   `number` (optional) Default: 1 — Page number
+: `number` (optional) Default: 1 — Page number
 
 limit
-:   `number` (optional) — Maximum number of accounts per page
+: `number` (optional) — Maximum number of accounts per page
 
 #### List counterparts of a provider — `GET /accounting/v1/providers/{provider_number}/counterparts/{book_code}{?third_label}`
 
 provider\_number
-:   `string` (required) — Account number of the provider
+: `string` (required) — Account number of the provider
 
 book\_code
-:   `string` (required) — Book code
+: `string` (required) — Book code
 
 third\_label
-:   `string` (optional) — Filter results with a label that contains the required string
+: `string` (optional) — Filter results with a label that contains the required string
 
 #### Provider creation — `POST /accounting/v1/providers`
 
@@ -326,24 +326,24 @@ Create a new provider.
 #### List customers — `GET /accounting/v1/customers{?complete_mode,page,limit}`
 
 complete\_mode
-:   `string` (optional) — If 1, returns accounts with debit, credit and balance.
+: `string` (optional) — If 1, returns accounts with debit, credit and balance.
 
 page
-:   `number` (optional) Default: 1
+: `number` (optional) Default: 1
 
 limit
-:   `number` (optional)
+: `number` (optional)
 
 #### List counterparts of a customer — `GET /accounting/v1/customers/{customer_number}/counterparts/{book_code}{?third_label}`
 
 customer\_number
-:   `string` (required)
+: `string` (required)
 
 book\_code
-:   `string` (required)
+: `string` (required)
 
 third\_label
-:   `string` (optional)
+: `string` (optional)
 
 #### Customer creation — `POST /accounting/v1/customers`
 
@@ -354,24 +354,24 @@ Create a new customer.
 #### List employees — `GET /accounting/v1/employees{?complete_mode,page,limit}`
 
 complete\_mode
-:   `string` (optional)
+: `string` (optional)
 
 page
-:   `number` (optional) Default: 1
+: `number` (optional) Default: 1
 
 limit
-:   `number` (optional)
+: `number` (optional)
 
 #### List counterparts of an employee — `GET /accounting/v1/employees/{employee_number}/counterparts/{book_code}{?third_label}`
 
 employee\_number
-:   `string` (required)
+: `string` (required)
 
 book\_code
-:   `string` (required)
+: `string` (required)
 
 third\_label
-:   `string` (optional)
+: `string` (optional)
 
 #### Employee creation — `POST /accounting/v1/employees`
 
@@ -401,12 +401,12 @@ List the available payment types of the company.
 
 Send document to Image Posting. If the company has configured the Purchase module and the document is sent to a purchase book, the document will initially be available in the Purchase application.
 
-| Name | Example | Description |
-| --- | --- | --- |
-| `company` (string, required) | `295399` | ID of the company |
-| `book` (number, optional) | `1234` | Book ID, the ID must be known to the company |
-| `bookCode` (string, optional) | `AC` | Book code - the code must be known to the company |
-| `file` (object, required) | `myfile.pdf` | File to upload - only pdf format accepted |
+| Name                          | Example      | Description                                       |
+| ----------------------------- | ------------ | ------------------------------------------------- |
+| `company` (string, required)  | `295399`     | ID of the company                                 |
+| `book` (number, optional)     | `1234`       | Book ID, the ID must be known to the company      |
+| `bookCode` (string, optional) | `AC`         | Book code - the code must be known to the company |
+| `file` (object, required)     | `myfile.pdf` | File to upload - only pdf format accepted         |
 
 > **Warning ⚠️** The user can set a book identifier in the `book` property or a book code in the `bookCode` property. At least one of them must be defined.
 
@@ -417,43 +417,43 @@ Send document to Image Posting. If the company has configured the Purchase modul
 List entries. By default entries are retrieved on current fiscal year (**last**) only. To retrieve previous fiscal years entries, date or period filters have to be set, and then other filters are eventually applied.
 
 account\_type
-:   `string` (optional) — Choices: `C` `F` `E`
+: `string` (optional) — Choices: `C` `F` `E`
 
 prefix
-:   `string` (optional) — filter to the given number prefix, override account\_type if given
+: `string` (optional) — filter to the given number prefix, override account\_type if given
 
 period\_start
-:   `string` (optional) — `mm/yyyy`
+: `string` (optional) — `mm/yyyy`
 
 period\_end
-:   `string` (optional) — `mm/yyyy`
+: `string` (optional) — `mm/yyyy`
 
 date\_start
-:   `string` (optional) — `dd/mm/yyyy`
+: `string` (optional) — `dd/mm/yyyy`
 
 date\_end
-:   `string` (optional) — `dd/mm/yyyy`
+: `string` (optional) — `dd/mm/yyyy`
 
 number\_start
-:   `string` (optional)
+: `string` (optional)
 
 number\_end
-:   `string` (optional)
+: `string` (optional)
 
 book\_start
-:   `string` (optional) — from book code
+: `string` (optional) — from book code
 
 book\_end
-:   `string` (optional) — to book code
+: `string` (optional) — to book code
 
 account
-:   `string` (optional) — filter to the given account number
+: `string` (optional) — filter to the given account number
 
 lettered
-:   `boolean` (optional) — `true`: lettered entries only / `false`: non-lettered only / empty: both
+: `boolean` (optional) — `true`: lettered entries only / `false`: non-lettered only / empty: both
 
 expand[]
-:   `string` (optional) — Choices: `document_url` `analytics`
+: `string` (optional) — Choices: `document_url` `analytics`
 
 #### Add entries — `POST /accounting/v1/entries`
 
@@ -479,21 +479,21 @@ Add entries specifically for sales invoice piece. Entries are handled in asynchr
 
 List asynchronous commands with their statuses.
 
-| status | indicator | description |
-| --- | --- | --- |
-| 0 | Queued | The command has been queued and should be processed shortly |
-| 1 | Recorded | The command has been processed without any error |
-| 2 | Error | An error has been encountered, the error message is provided |
-| 3 | Processing | The command is being processed |
+| status | indicator  | description                                                  |
+| ------ | ---------- | ------------------------------------------------------------ |
+| 0      | Queued     | The command has been queued and should be processed shortly  |
+| 1      | Recorded   | The command has been processed without any error             |
+| 2      | Error      | An error has been encountered, the error message is provided |
+| 3      | Processing | The command is being processed                               |
 
 ids
-:   `array` (optional) — List of command IDs separated by commas
+: `array` (optional) — List of command IDs separated by commas
 
 page
-:   `number` (optional) Default: 1
+: `number` (optional) Default: 1
 
 limit
-:   `number` (optional)
+: `number` (optional)
 
 ## Cred
 
@@ -504,19 +504,19 @@ limit
 List companies that the user can access.
 
 state
-:   `string` (optional) Default: `active` — Choices: `active` `locked`
+: `string` (optional) Default: `active` — Choices: `active` `locked`
 
 page
-:   `number` (optional)
+: `number` (optional)
 
 max\_per\_page
-:   `number` (optional)
+: `number` (optional)
 
 q
-:   `string` (optional) — Searched term in corporate name and file number
+: `string` (optional) — Searched term in corporate name and file number
 
 expand
-:   `array` (optional) — Choices: `corporate_name` `file_number` `vip` `favorite`
+: `array` (optional) — Choices: `corporate_name` `file_number` `vip` `favorite`
 
 ### Companies access
 
@@ -525,7 +525,7 @@ expand
 Check if a user has access right to the requested companies.
 
 company\_ids
-:   `string` (required) — Company ids separated by `,`. Example: `128,345,56`
+: `string` (required) — Company ids separated by `,`. Example: `128,345,56`
 
 ### Users
 
@@ -534,28 +534,28 @@ company\_ids
 List other users that the user can access.
 
 page
-:   `number` (optional)
+: `number` (optional)
 
 max\_per\_page
-:   `number` (optional)
+: `number` (optional)
 
 q
-:   `string` (optional) — Searched term in firstname, lastname and email
+: `string` (optional) — Searched term in firstname, lastname and email
 
 state
-:   `string` (optional) Default: `active` — Choices: `active` `locked`
+: `string` (optional) Default: `active` — Choices: `active` `locked`
 
 type
-:   `string` (optional) Default: `all` — Choices: `all` `practitioner` `client`
+: `string` (optional) Default: `all` — Choices: `all` `practitioner` `client`
 
 company
-:   `string` (optional) — Filter by company identifier
+: `string` (optional) — Filter by company identifier
 
 include\_me
-:   `bool` (optional) — Force requested user to be returned in response
+: `bool` (optional) — Force requested user to be returned in response
 
 expand
-:   `array` (optional) — Choices: `email` `firstname` `lastname` `profile`
+: `array` (optional) — Choices: `email` `firstname` `lastname` `profile`
 
 ### Users access
 
@@ -564,7 +564,7 @@ expand
 Check if a user has access right to the requested users.
 
 user\_ids
-:   `string` (required) — User ids separated by `,`. Example: `128,345,56`
+: `string` (required) — User ids separated by `,`. Example: `128,345,56`
 
 ### Module access
 
@@ -573,7 +573,7 @@ user\_ids
 Check if a user is allowed to use an application.
 
 module\_id
-:   `string` (required) — Module id
+: `string` (required) — Module id
 
 ## Document
 
@@ -583,24 +583,24 @@ module\_id
 
 Upload a new document.
 
-| Name | Example | Description |
-| --- | --- | --- |
-| `node` (string, required) | `companies` | Master location of a document privacy between `myDocuments`, `companies` or `users` |
-| `nodeId` (string, required) | `companies_295399` | Id of the user or the company, null if myDocuments |
-| `parent` (string, optional) | `123` | Document type ID for node `companies` or `users`. Cannot be used with `parentSlug` |
-| `parentSlug` (string, optional) | `payslip` | Document type slug. Cannot be used with `parent` |
-| `documentId` (number, optional) | `214` | Document ID if new version of an existing document |
-| `file` (object, required) | `(binary)` | File to upload |
-| `fileName` (string, optional) | `AnotherFile.pdf` | Document public filename |
-| `comments` (string, optional) | `This is an amazing file` | Comment about the document |
-| `confidential` (string, optional) |  | Only visible by practitioners |
-| `documentDate` (string, optional) | `2019-07-31` | `yyyy-mm-dd`, if null document's date will be current date |
-| `classificationDate` (string, optional) | `2019-07-31` | `yyyy-mm-dd` necessary if document's path is detailed per month |
-| `sourceApp` (string, optional) | `sourceAppName` | Name of app that sent the document |
-| `sourceId` (number, optional) | `124` | ID of the document stored in the source app |
-| `sourceUrl` (string, optional) | `https://source-app-url.eu/tasks/1234` | URL of the document stored in the source app |
-| `isConfidential` (boolean, optional) | true | Mark the document visible and available for practitioners only |
-| `confidentialFor` (array[number], optional) | [123] | Can be used only if `isConfidential` is true. Contains only ids of client users you want to grant access to the document |
+| Name                                        | Example                                | Description                                                                                                              |
+| ------------------------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `node` (string, required)                   | `companies`                            | Master location of a document privacy between `myDocuments`, `companies` or `users`                                      |
+| `nodeId` (string, required)                 | `companies_295399`                     | Id of the user or the company, null if myDocuments                                                                       |
+| `parent` (string, optional)                 | `123`                                  | Document type ID for node `companies` or `users`. Cannot be used with `parentSlug`                                       |
+| `parentSlug` (string, optional)             | `payslip`                              | Document type slug. Cannot be used with `parent`                                                                         |
+| `documentId` (number, optional)             | `214`                                  | Document ID if new version of an existing document                                                                       |
+| `file` (object, required)                   | `(binary)`                             | File to upload                                                                                                           |
+| `fileName` (string, optional)               | `AnotherFile.pdf`                      | Document public filename                                                                                                 |
+| `comments` (string, optional)               | `This is an amazing file`              | Comment about the document                                                                                               |
+| `confidential` (string, optional)           |                                        | Only visible by practitioners                                                                                            |
+| `documentDate` (string, optional)           | `2019-07-31`                           | `yyyy-mm-dd`, if null document's date will be current date                                                               |
+| `classificationDate` (string, optional)     | `2019-07-31`                           | `yyyy-mm-dd` necessary if document's path is detailed per month                                                          |
+| `sourceApp` (string, optional)              | `sourceAppName`                        | Name of app that sent the document                                                                                       |
+| `sourceId` (number, optional)               | `124`                                  | ID of the document stored in the source app                                                                              |
+| `sourceUrl` (string, optional)              | `https://source-app-url.eu/tasks/1234` | URL of the document stored in the source app                                                                             |
+| `isConfidential` (boolean, optional)        | true                                   | Mark the document visible and available for practitioners only                                                           |
+| `confidentialFor` (array[number], optional) | [123]                                  | Can be used only if `isConfidential` is true. Contains only ids of client users you want to grant access to the document |
 
 ### List document types
 
@@ -615,25 +615,25 @@ List all document types with the slug for a company according user accesses.
 List documents the user has access to on a company based on a slug of a document type.
 
 documentTypeSlug
-:   `string` (required)
+: `string` (required)
 
 date\_from
-:   `date` (optional)
+: `date` (optional)
 
 date\_to
-:   `date` (optional)
+: `date` (optional)
 
 sort\_by
-:   `enum` (optional) — Choices: `classification_date` `creation_date` `document_date`
+: `enum` (optional) — Choices: `classification_date` `creation_date` `document_date`
 
 sort\_order
-:   `enum` (optional) — Choices: `asc` `desc`
+: `enum` (optional) — Choices: `asc` `desc`
 
 page
-:   `number` (optional)
+: `number` (optional)
 
 limit
-:   `number` (optional)
+: `number` (optional)
 
 ## Datahub
 
@@ -653,10 +653,10 @@ List of available dataTypes:
 
 Retrieve specific information regarding a company. For now only accounting metadata information are available.
 
-| Name | Example | Description |
-| --- | --- | --- |
+| Name                           | Example | Description                                                                                      |
+| ------------------------------ | ------- | ------------------------------------------------------------------------------------------------ |
 | `isClosed` (boolean, optional) | `false` | When true or false, returns either open or closed fiscal years. When not specified, returns all. |
-| `sort` (Sort, optional) | `ASC` | Sort fiscal years chronologically or vice versa. Default: chronological. |
+| `sort` (Sort, optional)        | `ASC`   | Sort fiscal years chronologically or vice versa. Default: chronological.                         |
 
 ### DataTypes
 
@@ -670,12 +670,12 @@ List all data sources available (or that were once available) for a given compan
 
 List all the Atom IDs available for a specific data source and give the detailed datastructure of those atoms. A filter can be added to do a search.
 
-| Name | Example | Description |
-| --- | --- | --- |
-| `dataType` (DataType, required) | `COA` | Filter to restrict the search on the COA dataType. |
-| `filter` (string, optional) | `abc` | Search for a pattern in the name and label of the atom definition. |
-| `first` (number, optional) | `2` | Number of elements to retrieve. |
-| `after` (string, optional) | `Mdo=` | Starting base64-encoded index of the pagination. |
+| Name                            | Example | Description                                                        |
+| ------------------------------- | ------- | ------------------------------------------------------------------ |
+| `dataType` (DataType, required) | `COA`   | Filter to restrict the search on the COA dataType.                 |
+| `filter` (string, optional)     | `abc`   | Search for a pattern in the name and label of the atom definition. |
+| `first` (number, optional)      | `2`     | Number of elements to retrieve.                                    |
+| `after` (string, optional)      | `Mdo=`  | Starting base64-encoded index of the pagination.                   |
 
 ### FiscalYears
 
@@ -683,10 +683,10 @@ List all the Atom IDs available for a specific data source and give the detailed
 
 Retrieve the list of fiscal years associated with a company.
 
-| Name | Example | Description |
-| --- | --- | --- |
+| Name                           | Example | Description                                                                                    |
+| ------------------------------ | ------- | ---------------------------------------------------------------------------------------------- |
 | `isClosed` (boolean, optional) | `false` | When true or false returns either open or closed fiscal years. When not specified returns all. |
-| `sort` (Sort, optional) | `ASC` | Sort chronologically or vice versa. Default: chronological. |
+| `sort` (Sort, optional)        | `ASC`   | Sort chronologically or vice versa. Default: chronological.                                    |
 
 ### Currency
 
@@ -700,12 +700,12 @@ Retrieve the currency associated to a company.
 
 List all the Entries for a company for a period. Filters can be added to define a more precise result.
 
-| Name | Example | Description |
-| --- | --- | --- |
-| `period` (Period, required) | `2020-31-12` | Object to define the date range. Format: year-month-day. |
-| `accountId` (string, optional) | `e931a0edb6a6` | Account id to filter on this specific entry field. |
-| `filter` (EntriesByCompanyIdFilterInput, optional) | `abc` | Filter to search on different entry fields such as `label` or `analytics`. |
-| `sort` (EntriesColumnSort, optional) | `ASC` | Sorting instruction allowing you to choose the column and direction. Default: anti-chronological on date. |
+| Name                                               | Example        | Description                                                                                               |
+| -------------------------------------------------- | -------------- | --------------------------------------------------------------------------------------------------------- |
+| `period` (Period, required)                        | `2020-31-12`   | Object to define the date range. Format: year-month-day.                                                  |
+| `accountId` (string, optional)                     | `e931a0edb6a6` | Account id to filter on this specific entry field.                                                        |
+| `filter` (EntriesByCompanyIdFilterInput, optional) | `abc`          | Filter to search on different entry fields such as `label` or `analytics`.                                |
+| `sort` (EntriesColumnSort, optional)               | `ASC`          | Sorting instruction allowing you to choose the column and direction. Default: anti-chronological on date. |
 
 ### Accounts
 
@@ -731,15 +731,15 @@ Get the tree structure associated to a company. Allows to retrieve analysis for 
 
 Get raw or aggregated values for a list of headings sums.
 
-| Name | Example | Description |
-| --- | --- | --- |
-| `dataType` (DataType, required) | `COA` | Filter to restrict the search on the COA dataType. |
-| `atomInputs` (array[AtomInput], required) | `{ id:"044acf60" dataPart:["heading_value"]}` | ID and part of the required Atom. |
-| `period` (object, required) | `(startDate, endDate)` | Data period. |
-| `scale` (Scale, required) | `MONTH` | Unit in the period. |
-| `calculation` (CalculationMode, required) | `TRANSACTIONAL` | Type of calculation. |
-| `first` (number, optional) | `2` | Number of elements to retrieve. |
-| `after` (string, optional) | `Mdo=` | Starting base64-encoded index of the pagination. |
+| Name                                      | Example                                       | Description                                        |
+| ----------------------------------------- | --------------------------------------------- | -------------------------------------------------- |
+| `dataType` (DataType, required)           | `COA`                                         | Filter to restrict the search on the COA dataType. |
+| `atomInputs` (array[AtomInput], required) | `{ id:"044acf60" dataPart:["heading_value"]}` | ID and part of the required Atom.                  |
+| `period` (object, required)               | `(startDate, endDate)`                        | Data period.                                       |
+| `scale` (Scale, required)                 | `MONTH`                                       | Unit in the period.                                |
+| `calculation` (CalculationMode, required) | `TRANSACTIONAL`                               | Type of calculation.                               |
+| `first` (number, optional)                | `2`                                           | Number of elements to retrieve.                    |
+| `after` (string, optional)                | `Mdo=`                                        | Starting base64-encoded index of the pagination.   |
 
 ### Raw or aggregated account sums
 
@@ -747,12 +747,12 @@ Get raw or aggregated values for a list of headings sums.
 
 Get raw or aggregated values for a list of accounts sums.
 
-| Name | Example | Description |
-| --- | --- | --- |
-| `dataType` (DataType, required) | `ACCOUNT` | Filter to restrict the search on the ACCOUNT dataType. |
-| `atomInputs` (array[AtomInput], required) | `{id:"044acf60" dataPart:["heading_value"]}` | ID and part of the required Atom. |
-| `period` (object, required) | `(startDate, endDate)` | Data period. |
-| `scale` (Scale, required) | `MONTH` | Unit in the period. |
-| `calculation` (CalculationMode, required) | `TRANSACTIONAL` | Type of calculation. |
-| `first` (number, optional) | `2` | Number of elements to retrieve. |
-| `after` (string, optional) | `Mdo=` | Starting base64-encoded index of the pagination. |
+| Name                                      | Example                                      | Description                                            |
+| ----------------------------------------- | -------------------------------------------- | ------------------------------------------------------ |
+| `dataType` (DataType, required)           | `ACCOUNT`                                    | Filter to restrict the search on the ACCOUNT dataType. |
+| `atomInputs` (array[AtomInput], required) | `{id:"044acf60" dataPart:["heading_value"]}` | ID and part of the required Atom.                      |
+| `period` (object, required)               | `(startDate, endDate)`                       | Data period.                                           |
+| `scale` (Scale, required)                 | `MONTH`                                      | Unit in the period.                                    |
+| `calculation` (CalculationMode, required) | `TRANSACTIONAL`                              | Type of calculation.                                   |
+| `first` (number, optional)                | `2`                                          | Number of elements to retrieve.                        |
+| `after` (string, optional)                | `Mdo=`                                       | Starting base64-encoded index of the pagination.       |

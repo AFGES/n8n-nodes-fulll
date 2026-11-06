@@ -22,7 +22,9 @@ export const userDescription: INodeProperties[] = [
 				value: 'checkAccess',
 				action: 'Check user access',
 				description: 'Check user access verification',
-				routing: { request: { method: 'GET', url: '=/cred/v1/access/users/{{$parameter.userIds}}.json' } },
+				routing: {
+					request: { method: 'GET', url: '=/cred/v1/access/users/{{$parameter.userIds}}.json' },
+				},
 			},
 		],
 		default: 'getAll',
@@ -106,7 +108,9 @@ export const userDescription: INodeProperties[] = [
 		displayOptions: { show: { ...showOnlyForUser, operation: ['getAll'] } },
 		default: false,
 		description: 'Whether to include the requesting user in the response',
-		routing: { send: { type: 'query', property: 'include_me', value: '={{$value ? "true" : undefined}}' } },
+		routing: {
+			send: { type: 'query', property: 'include_me', value: '={{$value ? "true" : undefined}}' },
+		},
 	},
 	{
 		displayName: 'Expand',
@@ -122,6 +126,12 @@ export const userDescription: INodeProperties[] = [
 		default: [],
 		description: 'Additional properties to return in the response',
 		// NOTE: API.md documents `expand` as an array; sent comma-joined. Confirm serialization against the live API.
-		routing: { send: { type: 'query', property: 'expand', value: '={{$value?.length ? $value.join(",") : undefined}}' } },
+		routing: {
+			send: {
+				type: 'query',
+				property: 'expand',
+				value: '={{$value?.length ? $value.join(",") : undefined}}',
+			},
+		},
 	},
 ];

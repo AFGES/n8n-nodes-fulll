@@ -22,14 +22,21 @@ export const companyDescription: INodeProperties[] = [
 				value: 'checkAccess',
 				action: 'Check company access',
 				description: 'Check company access verification',
-				routing: { request: { method: 'GET', url: '=/cred/v1/access/companies/{{$parameter.companyIds}}.json' } },
+				routing: {
+					request: {
+						method: 'GET',
+						url: '=/cred/v1/access/companies/{{$parameter.companyIds}}.json',
+					},
+				},
 			},
 			{
 				name: 'Check Module Access',
 				value: 'checkModuleAccess',
 				action: 'Check module access',
 				description: 'Check module access status',
-				routing: { request: { method: 'GET', url: '=/cred/v1/access/modules/{{$parameter.moduleId}}.json' } },
+				routing: {
+					request: { method: 'GET', url: '=/cred/v1/access/modules/{{$parameter.moduleId}}.json' },
+				},
 			},
 		],
 		default: 'getAll',
@@ -106,6 +113,12 @@ export const companyDescription: INodeProperties[] = [
 		default: [],
 		description: 'Additional properties to return in the response',
 		// NOTE: API.md documents `expand` as an array; sent comma-joined. Confirm serialization against the live API.
-		routing: { send: { type: 'query', property: 'expand', value: '={{$value?.length ? $value.join(",") : undefined}}' } },
+		routing: {
+			send: {
+				type: 'query',
+				property: 'expand',
+				value: '={{$value?.length ? $value.join(",") : undefined}}',
+			},
+		},
 	},
 ];
