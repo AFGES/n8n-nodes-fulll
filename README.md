@@ -98,7 +98,7 @@ Utilisez l'opération **Token → Refresh Token** pour obtenir de nouveaux jeton
 
 - [Documentation des nœuds communautaires n8n](https://docs.n8n.io/integrations/community-nodes/)
 - [Référence de l'API Fulll](API.md)
-- [Dépôt GitHub](https://github.com/AFGES/n8n-nodes-fulll)
+- [Dépôt](https://git.afges.eu/n8n/n8n-nodes-fulll) (miroir [GitHub](https://github.com/AFGES/n8n-nodes-fulll))
 
 ### Historique des versions
 
@@ -198,7 +198,7 @@ Use the **Token → Refresh Token** operation to obtain new tokens.
 
 - [n8n community nodes documentation](https://docs.n8n.io/integrations/community-nodes/)
 - [Fulll API reference](API.md)
-- [GitHub repository](https://github.com/AFGES/n8n-nodes-fulll)
+- [Repository](https://git.afges.eu/n8n/n8n-nodes-fulll) ([GitHub](https://github.com/AFGES/n8n-nodes-fulll) mirror)
 
 ### Version history
 

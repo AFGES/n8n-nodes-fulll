@@ -3,7 +3,10 @@
 	"version": "0.1.0",
 	"description": "A collection of n8n nodes for the Fulll API",
 	"license": "MIT",
-	"homepage": "https://github.com/AFGES/n8n-nodes-fulll#readme",
+	"homepage": "https://git.afges.eu/n8n/n8n-nodes-fulll#readme",
+	"bugs": {
+		"url": "https://git.afges.eu/n8n/n8n-nodes-fulll/issues"
+	},
 	"keywords": [
 		"n8n-community-node-package"
 	],
@@ -24,7 +27,7 @@
 		"check": "vp check",
 		"check:fix": "vp check --fix",
 		"format": "vp fmt",
-		"release": "n8n-node release",
+		"release": "release-it",
 		"prepublishOnly": "n8n-node prerelease"
 	},
 	"files": [
