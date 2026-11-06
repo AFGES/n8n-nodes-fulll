@@ -23,7 +23,7 @@ async function mergeAdditionalVariables(
 	>;
 	if (!extra || !Object.keys(extra).length) return requestOptions;
 	const body = (requestOptions.body ?? {}) as Record<string, unknown>;
-	body.variables = { ...extra, ...((body.variables as Record<string, unknown>) ?? {}) };
+	body.variables = { ...extra, ...(body.variables as Record<string, unknown> | undefined) };
 	requestOptions.body = body;
 	return requestOptions;
 }

@@ -73,7 +73,7 @@ async function presendDocumentUpload(
 	const { body, contentType } = encodeMultipart(parts);
 	requestOptions.body = body;
 	requestOptions.json = false;
-	const headers = { ...(requestOptions.headers ?? {}) };
+	const headers = { ...requestOptions.headers };
 	delete headers['content-type'];
 	headers['Content-Type'] = contentType;
 	requestOptions.headers = headers;
